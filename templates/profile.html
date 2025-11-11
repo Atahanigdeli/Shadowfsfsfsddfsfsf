@@ -1,0 +1,306 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .btn-discord {
+        background-color: #5865F2;
+        color: white !important;
+    }
+    .btn-discord:hover {
+        background-color: #4752c4;
+        color: white;
+    }
+    .logout-btn {
+        width: 100%;
+    }
+</style>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Document loaded, initializing password form...');
+        
+        // Debug form submission
+        const passwordForm = document.getElementById('changePasswordForm');
+        if (passwordForm) {
+            passwordForm.addEventListener('submit', function(e) {
+                console.log('Password form submitted');
+                console.log('Current password value:', document.getElementById('current_password').value);
+                console.log('New password value:', document.getElementById('new_password').value);
+                console.log('Confirm password value:', document.getElementById('confirm_password').value);
+                
+                // Prevent default to check if the form would submit
+                e.preventDefault();
+                
+                // Manually submit the form
+                console.log('Manually submitting form...');
+                this.submit();
+            });
+        }
+        // Toggle password visibility
+        document.querySelectorAll('.toggle-password').forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const input = document.getElementById(targetId);
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('bi-eye');
+                    icon.classList.add('bi-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('bi-eye-slash');
+                    icon.classList.add('bi-eye');
+                }
+            });
+        });
+    });
+    
+    function validatePassword() {
+        const form = document.getElementById('changePasswordForm');
+        const currentPassword = document.getElementById('current_password');
+        const newPassword = document.getElementById('new_password');
+        const confirmPassword = document.getElementById('confirm_password');
+        let isValid = true;
+        
+        // Reset validation
+        form.classList.remove('was-validated');
+        [currentPassword, newPassword, confirmPassword].forEach(input => {
+            input.classList.remove('is-invalid');
+        });
+        
+        // Check current password
+        if (!currentPassword.value.trim()) {
+            currentPassword.classList.add('is-invalid');
+            isValid = false;
+        }
+        
+        // Check new password length
+        if (newPassword.value.length < 8) {
+            newPassword.classList.add('is-invalid');
+            isValid = false;
+        }
+        
+        // Check password complexity
+        const hasNumber = /\d/.test(newPassword.value);
+        const hasUpper = /[A-Z]/.test(newPassword.value);
+        const hasLower = /[a-z]/.test(newPassword.value);
+        
+        if (!hasNumber || !hasUpper || !hasLower) {
+            newPassword.classList.add('is-invalid');
+            isValid = false;
+        }
+        
+        // Check if passwords match
+        if (newPassword.value !== confirmPassword.value) {
+            confirmPassword.classList.add('is-invalid');
+            isValid = false;
+        }
+        
+        if (!isValid) {
+            form.classList.add('was-validated');
+            return false;
+        }
+        
+        return true;
+    }
+
+    // Handle logout
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+        window.location.href = "{{ url_for('logout') }}";
+    });
+    
+    // Password validation function
+    function validatePassword() {
+        const currentPassword = document.getElementById('current_password');
+        const newPassword = document.getElementById('new_password');
+        const confirmPassword = document.getElementById('confirm_password');
+        let isValid = true;
+        
+        // Reset validation
+        [currentPassword, newPassword, confirmPassword].forEach(input => {
+            input.classList.remove('is-invalid');
+        });
+        
+        // Check current password
+        if (!currentPassword.value.trim()) {
+            currentPassword.classList.add('is-invalid');
+            isValid = false;
+        }
+        
+        // Check new password length
+        if (newPassword.value.length < 8) {
+            newPassword.classList.add('is-invalid');
+            document.querySelector('label[for="new_password"]').nextElementSibling.textContent = 'Şifre en az 8 karakter olmalıdır.';
+            isValid = false;
+        }
+        
+        // Check password complexity
+        const hasNumber = /\d/.test(newPassword.value);
+        const hasUpper = /[A-Z]/.test(newPassword.value);
+        const hasLower = /[a-z]/.test(newPassword.value);
+        
+        if (!hasNumber || !hasUpper || !hasLower) {
+            newPassword.classList.add('is-invalid');
+            document.querySelector('label[for="new_password"]').nextElementSibling.textContent = 'En az bir büyük harf, bir küçük harf ve bir rakam içermeli';
+            isValid = false;
+        }
+        
+        // Check if passwords match
+        if (newPassword.value !== confirmPassword.value) {
+            confirmPassword.classList.add('is-invalid');
+            isValid = false;
+        }
+        
+        if (isValid) {
+            // Show loading state
+            const submitBtn = document.querySelector('#changePasswordForm button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Güncelleniyor...';
+            
+            // Submit the form
+            return true;
+        }
+        
+        return false;
+    }
+    
+    // Handle any remaining order history functionality
+    const deleteOrderHistory = document.getElementById('deleteOrderHistory');
+    if (deleteOrderHistory) {
+        deleteOrderHistory.addEventListener('click', function() {
+            alert('Bu özellik şu anda kullanılamıyor.');
+        });
+    }
+</script>
+
+<div class="container">
+    <!-- Profile Info -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Profil Bilgileri</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <!-- Profile Picture -->
+                <div class="col-md-3 text-center mb-4 mb-md-0">
+                    <div class="position-relative d-inline-block mb-3">
+                        {% if session.get('profile_pic') %}
+                            <img src="{{ session['profile_pic'] }}" class="rounded-circle shadow" style="width: 120px; height: 120px; object-fit: cover;" alt="Profil Resmi">
+                        {% else %}
+                            <div class="rounded-circle shadow d-flex align-items-center justify-content-center" style="width: 120px; height: 120px; background-color: #f0f0f0;">
+                                <i class="bi bi-person-fill" style="font-size: 4rem; color: #999;"></i>
+                            </div>
+                        {% endif %}
+                        <a href="{{ url_for('profile_picture') }}" class="position-absolute bottom-0 end-0 bg-primary text-white rounded-circle p-2" style="width: 36px; height: 36px; transform: translate(-10px, -10px);">
+                            <i class="bi bi-camera"></i>
+                        </a>
+                    </div>
+                    <h5 class="mb-1">{{ user.username }}</h5>
+                    <p class="text-muted small">{{ user.email }}</p>
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('profile_picture') }}" class="btn btn-outline-primary btn-sm mb-2">
+                            <i class="bi bi-camera me-1"></i> Resmi Değiştir
+                        </a>
+                        <a href="https://discord.gg/6qDKkHfkQt " target="_blank" class="btn btn-discord btn-sm mb-2">
+                            <i class="bi bi-discord me-1"></i> Discord Sunucumuza Katılın
+                        </a>
+                        <button id="logoutBtn" class="btn btn-outline-danger btn-sm logout-btn">
+                            <i class="bi bi-box-arrow-right me-1"></i> Çıkış Yap
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Profile Form -->
+                <div class="col-md-9">
+                    <form method="POST" action="{{ url_for('profile') }}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Kullanıcı Adı</label>
+                                    <input type="text" class="form-control" id="username" value="{{ user.username }}" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">E-posta Adresi</label>
+                                    <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefon Numarası</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" value="{{ user.phone or '' }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Adres</label>
+                            <textarea class="form-control" id="address" name="address" rows="3">{{ user.address or '' }}</textarea>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-lg me-1"></i> Bilgileri Güncelle
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Password Change Section -->
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Şifre Değiştir</h5>
+        </div>
+        <div class="card-body">
+            <form id="changePasswordForm" method="POST" action="{{ url_for('change_password') }}" onsubmit="return validatePassword();">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="current_password" class="form-label">Mevcut Şifre</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="current_password" name="current_password" required>
+                                <button class="btn btn-outline-secondary toggle-password" type="button" data-target="current_password">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                            <div class="invalid-feedback">Lütfen mevcut şifrenizi giriniz.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="new_password" class="form-label">Yeni Şifre</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="new_password" name="new_password" required>
+                                <button class="btn btn-outline-secondary toggle-password" type="button" data-target="new_password">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-text small">En az 8 karakter, büyük/küçük harf ve rakam içermeli</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label">Yeni Şifre (Tekrar)</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                                <button class="btn btn-outline-secondary toggle-password" type="button" data-target="confirm_password">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                            <div class="invalid-feedback">Şifreler eşleşmiyor.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary" style="min-width: 180px;">
+                        <i class="bi bi-key me-2"></i>Şifreyi Güncelle
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

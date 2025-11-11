@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Ödeme Bilgileri</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('checkout') }}" id="checkout-form">
+                    <div class="mb-3">
+                        <label for="card_number" class="form-label">Kart Numarası</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="card_number" name="card_number" 
+                                   placeholder="0000 0000 0000 0000" required>
+                            <span class="input-group-text"><i class="bi bi-credit-card"></i></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="expiry" class="form-label">Son Kullanma Tarihi (AA/YY)</label>
+                            <input type="text" class="form-control" id="expiry" name="expiry" 
+                                   placeholder="MM/YY" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cvv" name="cvv" 
+                                   placeholder="123" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="card_name" class="form-label">Kart Üzerindeki İsim</label>
+                        <input type="text" class="form-control" id="card_name" required>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="save_card" checked>
+                        <label class="form-check-label" for="save_card">
+                            Kart bilgilerimi kaydet
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Fatura Adresi</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">Adres</label>
+                    <p>{{ user.address or 'Adres bilgisi bulunamadı. Lütfen profilinizden güncelleyin.' }}</p>
+                </div>
+                <a href="{{ url_for('profile') }}" class="btn btn-outline-primary">Adresi Güncelle</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Sipariş Özeti</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Ara Toplam:</span>
+                    <span>{{ "%.2f"|format(total) }} TL</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Kargo:</span>
+                    <span>Ücretsiz</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <strong>Toplam:</strong>
+                    <strong>{{ "%.2f"|format(total) }} TL</strong>
+                </div>
+                <hr>
+                <button type="submit" form="checkout-form" class="btn btn-primary w-100">
+                    Ödemeyi Tamamla
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

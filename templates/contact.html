@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Contact Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold mb-3">Bize Ulaşın</h1>
+            <p class="lead text-muted">Her türlü soru, görüş ve önerileriniz için aşağıdaki iletişim bilgilerimizden bize ulaşabilirsiniz.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4 p-lg-5">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">İletişim Bilgilerim</h2>
+                            <p class="lead text-muted">Aşağıdaki bilgilerden bana ulaşabilirsiniz</p>
+                        </div>
+                        
+                        <div class="row g-4">
+                            <!-- WhatsApp -->
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="p-4 h-100 contact-card">
+                                    <div class="icon-wrapper" style="background: var(--success);">
+                                        <i class="bi bi-whatsapp text-white fs-1"></i>
+                                    </div>
+                                    <h4 class="h5 mb-3 fw-bold">WhatsApp</h4>
+                                    <p class="mb-4 text-muted">Hızlı yanıt için WhatsApp'tan yazın</p>
+                                    <a href="https://wa.me/905551234567" class="btn btn-contact text-white" style="background: var(--success);" target="_blank">
+                                        <i class="bi bi-whatsapp me-2"></i>Mesaj Gönder
+                                    </a>
+                                    <div class="mt-3">
+                                        <small class="text-muted">+90 555 123 4567</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="p-4 h-100 contact-card">
+                                    <div class="icon-wrapper" style="background: var(--email);">
+                                        <i class="bi bi-envelope text-white fs-1"></i>
+                                    </div>
+                                    <h4 class="h5 mb-3 fw-bold">E-posta</h4>
+                                    <p class="mb-4 text-muted">Detaylı bilgi için e-posta gönderin</p>
+                                    <a href="mailto:ornek@mail.com" class="btn btn-contact text-white" style="background: var(--email);">
+                                        <i class="bi bi-envelope me-2"></i>E-posta Gönder
+                                    </a>
+                                    <div class="mt-3">
+                                        <small class="text-muted">info.shadowweb@gmail.com</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Discord -->
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="p-4 h-100 contact-card">
+                                    <div class="icon-wrapper" style="background: var(--discord);">
+                                        <i class="bi bi-discord text-white fs-1"></i>
+                                    </div>
+                                    <h4 class="h5 mb-3 fw-bold">Discord</h4>
+                                    <p class="mb-4 text-muted">Çevrimiçi olduğumda mesaj atın</p>
+                                    <button class="btn btn-contact text-white" style="background: var(--discord);" onclick="createRipple(event, this); copyDiscord()" id="discordBtn">
+                                        <i class="bi bi-discord me-2"></i>Discord Adını Kopyala
+                                    </button>
+                                    <div class="mt-3">
+                                        <small class="text-muted">nighthera</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-5 pt-4 border-top">
+                            <h4 class="h5 mb-3">En Hızlı Yanıt İçin</h4>
+                            <p class="text-muted mb-4">En hızlı yanıt için lütfen WhatsApp üzerinden iletişime geçiniz.</p>
+                            <a href="https://wa.me/905551234567" class="btn btn-success btn-lg" target="_blank">
+                                <i class="bi bi-whatsapp me-2"></i>WhatsApp'tan Yaz
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<style>
+    :root {
+        --primary: #4361ee;
+        --secondary: #3a0ca3;
+        --success: #4caf50;
+        --discord: #8e24aa;
+        --email: #1565c0;
+    }
+    
+    body {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        background: #f8f9fa;
+    }
+    
+    /* Glass Morphism Effect */
+    .contact-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .contact-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .contact-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-card:hover::before {
+        opacity: 1;
+    }
+    
+    /* Card Icons */
+    .icon-wrapper {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        position: relative;
+        z-index: 1;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .icon-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0.2;
+        transform: scale(0.8);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .contact-card:hover .icon-wrapper {
+        transform: translateY(-5px) scale(1.1);
+    }
+    
+    .contact-card:hover .icon-wrapper::before {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    
+    /* Buttons */
+    .btn-contact {
+        position: relative;
+        overflow: hidden;
+        border: none;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 0.6rem 1.5rem;
+        border-radius: 50px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1;
+    }
+    
+    .btn-contact::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .btn-contact:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .btn-contact:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+    
+    /* Ripple Effect */
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        pointer-events: none;
+    }
+    
+    @keyframes ripple {
+        to {
+            transform: scale(3);
+            opacity: 0;
+        }
+    }
+    
+    /* Success Animation */
+    @keyframes checkmark {
+        0% { transform: scale(0); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+    
+    .success .bi-check2 {
+        animation: checkmark 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        display: inline-block;
+    }
+</style>
+
+<!-- Quick Contact -->
+<section class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="mb-4">Hızlı İletişim</h2>
+        <p class="lead mb-4">Aşağıdaki butonlardan bana hemen ulaşabilirsiniz</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="https://wa.me/905551234567" class="btn btn-success btn-lg px-4" target="_blank">
+                <i class="bi bi-whatsapp me-2"></i>WhatsApp'tan Yaz
+            </a>
+            <a href="info.shadowweb@gmail.com" class="btn btn-primary btn-lg px-4">
+                <i class="bi bi-envelope me-2"></i>E-posta Gönder
+            </a>
+            <button class="btn btn-indigo btn-lg px-4" onclick="copyDiscord()">
+                <i class="bi bi-discord me-2"></i>Discord'u Kopyala
+            </button>
+        </div>
+    </div>
+</section>
+
+<script>
+// Ripple Effect Function
+function createRipple(event, button) {
+    const rect = button.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+    
+    button.appendChild(ripple);
+    
+    // Remove ripple after animation completes
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+}
+
+// Add click effect to all buttons
+const buttons = document.querySelectorAll('.btn-contact');
+buttons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        createRipple(e, this);
+    });
+});
+
+function copyDiscord() {
+    // Kopyalanacak metin
+    var discordUsername = "nighthera";
+    
+    // Geçici bir textarea oluştur
+    var textarea = document.createElement("textarea");
+    textarea.value = discordUsername;
+    document.body.appendChild(textarea);
+    
+    // Metni seç ve kopyala
+    textarea.select();
+    document.execCommand("copy");
+    
+    // Geçici textarea'yı kaldır
+    document.body.removeChild(textarea);
+    
+    // Kullanıcıya bildirim göster
+    var btn = document.getElementById("discordBtn");
+    var originalHTML = btn.innerHTML;
+    
+    // Add success class for animation
+    btn.classList.add('success');
+    btn.innerHTML = "<i class='bi bi-check2 me-2'></i>Kopyalandı!";
+    
+    // 2 saniye sonra orijinal metne geri dön
+    setTimeout(function() {
+        btn.classList.remove('success');
+        btn.innerHTML = originalHTML;
+    }, 2000);
+}
+</script>
+{% endblock %}

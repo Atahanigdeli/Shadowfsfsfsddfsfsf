@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section with Parallax Effect -->
+<section class="py-5 text-white position-relative overflow-hidden" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover; min-height: 60vh; display: flex; align-items: center;">
+    <div class="container position-relative z-1">
+        <div class="text-center">
+            <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">Web Hizmetlerimiz</h1>
+            <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s">Profesyonel çözümlerle işletmenizi dijital dünyada öne çıkarın</p>
+            <a href="{{ url_for('contact') }}" class="btn btn-warning btn-lg px-5 py-3 animate__animated animate__pulse animate__infinite">
+                <i class="bi bi-headset me-2"></i>Hemen İletişime Geçin
+            </a>
+        </div>
+    </div>
+    <div class="position-absolute w-100" style="bottom: -1px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+            <path fill="#fff" fill-opacity="1" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,69.3C960,85,1056,107,1152,112C1248,117,1344,107,1392,101.3L1440,96L1440,100L1392,100C1344,100,1248,100,1152,100C1056,100,960,100,864,100C768,100,672,100,576,100C480,100,384,100,288,100C192,100,96,100,48,100L0,100Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- E-Commerce Website -->
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="h5 mb-0 text-center">E-Ticaret Web Sitesi</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Ürün sayfaları ve kategoriler</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sepet ve ödeme entegrasyonu</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Mobil uyumlu arayüz</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Güvenli alışveriş</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Kullanıcı dostu yönetim paneli</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <span class="h4 mb-0">$6 – $10</span>
+                            <a href="{{ url_for('contact') }}" class="btn btn-warning">
+                                <i class="bi bi-cart-plus me-2"></i>Hemen Sipariş Ver
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Custom Website -->
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="h5 mb-0 text-center">Özel Web Sitesi</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>%100 Özel Tasarım</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Özel animasyonlar</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Yönetim paneli</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Mobil uyumluluk</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>SEO uyumlu yapı</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <span class="h4 mb-0">$15</span>
+                            <a href="{{ url_for('contact') }}" class="btn btn-warning">
+                                <i class="bi bi-star-fill me-2"></i>Özel Teklif İste
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Additional Examples Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Neler Yapıyoruz?</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                         class="card-img-top" 
+                         alt="Kurumsal Web Tasarım"
+                         style="height: 160px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h4 class="h5">Kurumsal Web Tasarım</h4>
+                        <p class="text-muted">Şirketinize özel profesyonel web sitesi çözümleri</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                         class="card-img-top" 
+                         alt="Mobil Uyumlu Tasarım"
+                         style="height: 160px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h4 class="h5">Mobil Uyumlu Tasarım</h4>
+                        <p class="text-muted">Tüm cihazlarda mükemel görüntülenen web siteleri</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                         class="card-img-top" 
+                         alt="SEO Optimizasyonu"
+                         style="height: 160px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h4 class="h5">SEO Optimizasyonu</h4>
+                        <p class="text-muted">Arama motorlarında üst sıralarda çıkın</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section with Particles -->
+<section class="py-5 text-white position-relative overflow-hidden" style="background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);">
+    <div id="particles-js" class="position-absolute w-100 h-100 top-0 start-0"></div>
+    <div class="container text-center py-5 position-relative">
+        <h2 class="display-5 fw-bold mb-4 animate__animated animate__fadeInDown">Hemen Başlayalım!</h2>
+        <p class="lead mb-5 animate__animated animate__fadeInUp animate__delay-1s">Profesyonel web çözümlerimizle işletmenizi bir adım öne taşıyın.</p>
+        <a href="https://discord.gg/6qDKkHfkQt " class="btn btn-light btn-lg px-5 py-3 fw-bold animate__animated animate__pulse animate__infinite">
+            <i class="bi bi-chat-dots-fill me-2"></i>Ücretsiz Danışmanlık Alın
+        </a>
+    </div>
+    <div class="position-absolute w-100" style="bottom: -1px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+            <path fill="#fff" fill-opacity="1" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,69.3C960,85,1056,107,1152,112C1248,117,1344,107,1392,101.3L1440,96L1440,100L1392,100C1344,100,1248,100,1152,100C1056,100,960,100,864,100C768,100,672,100,576,100C480,100,384,100,288,100C192,100,96,100,48,100L0,100Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Particles.js Script -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    // Initialize particles.js
+    document.addEventListener('DOMContentLoaded', function() {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out' }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'grab' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    });
+    
+    // Add hover effect to cards
+    document.querySelectorAll('.hover-effect').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+            this.style.boxShadow = '0 1rem 3rem rgba(0,0,0,.175)!important';
+            this.querySelector('img').style.transform = 'scale(1.1)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 .5rem 1rem rgba(0,0,0,.15)!important';
+            this.querySelector('img').style.transform = 'scale(1)';
+        });
+    });
+</script>
+{% endblock %}

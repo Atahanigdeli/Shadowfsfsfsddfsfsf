@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Alışveriş Sepetim</h2>
+
+{% if cart_items %}
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ürün</th>
+                <th>Fiyat</th>
+                <th>Adet</th>
+                <th>Toplam</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <img src="{{ item.Product.image_url }}" alt="{{ item.Product.name }}" style="width: 50px; height: 50px; object-fit: cover;" class="me-3">
+                        <div>
+                            <h6 class="mb-0">{{ item.Product.name }}</h6>
+                            <small class="text-muted">{{ item.Product.description[:50] }}...</small>
+                        </div>
+                    </div>
+                </td>
+                <td>{{ "%.2f"|format(item.Product.price) }} TL</td>
+                <td>{{ item.Cart.quantity }}</td>
+                <td>{{ "%.2f"|format(item.Product.price * item.Cart.quantity) }} TL</td>
+                <td>
+                    <form action="{{ url_for('remove_from_cart', cart_id=item.Cart.id) }}" method="POST" style="display: inline;">
+                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Bu ürünü sepetinizden kaldırmak istediğinize emin misiniz?')">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end"><strong>Toplam:</strong></td>
+                <td colspan="2"><strong>{{ "%.2f"|format(total) }} TL</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="d-flex justify-content-between mt-4">
+    <form action="{{ url_for('clear_cart') }}" method="POST" onsubmit="return confirm('Tüm sepetinizi temizlemek istediğinize emin misiniz? Bu işlem geri alınamaz.');">
+        <button type="submit" class="btn btn-outline-danger">
+            <i class="bi bi-trash me-1"></i> Sepeti Temizle
+        </button>
+    </form>
+    <div>
+        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary me-2">Alışverişe Devam Et</a>
+        <a href="{{ url_for('checkout') }}" class="btn btn-primary">Ödemeye Geç</a>
+    </div>
+</div>
+{% else %}
+<div class="text-center py-5">
+    <div class="mb-4">
+        <i class="bi bi-cart-x" style="font-size: 4rem; color: #6c757d;"></i>
+    </div>
+    <h4>Sepetiniz boş</h4>
+    <p class="text-muted">Alışverişe başlamak için ürün ekleyin.</p>
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Alışverişe Başla</a>
+</div>
+{% endif %}
+{% endblock %}

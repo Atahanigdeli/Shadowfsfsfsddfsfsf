@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 text-white position-relative overflow-hidden" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1631624215749-b10b3dd7bca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover; min-height: 50vh; display: flex; align-items: center;">
+    <div class="container position-relative z-1">
+        <div class="text-center">
+            <h1 class="display-4 fw-bold mb-4">Discord Bot Kiralama</h1>
+            <p class="lead mb-4">Sunucunuz için profesyonel Discord bot çözümleri</p>
+        </div>
+    </div>
+</section>
+
+<!-- Premium Bot Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg overflow-hidden">
+                    <div class="row g-0">
+                        <!-- Bot Icon -->
+                        <div class="col-md-5 d-flex align-items-center p-4">
+                            <div class="text-center w-100">
+                                <div class="d-flex justify-content-center mb-4">
+                                    <div class="d-flex align-items-center justify-content-center" style="width: 150px; height: 150px; background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%); border-radius: 50%;">
+                                        <i class="bi bi-robot text-white" style="font-size: 4rem;"></i>
+                                    </div>
+                                </div>
+                                <h3 class="h4 mb-3">Premium Discord Bot</h3>
+                                <p class="text-muted">Sadece $1/ay</p>
+                            </div>
+                        </div>
+                        <!-- Bot Details -->
+                        <div class="col-md-7">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h2 class="h3 mb-0">Premium Discord Bot</h2>
+                                    <span class="badge bg-warning text-dark fs-6">Popüler</span>
+                                </div>
+                                
+                                <div class="d-flex align-items-center mb-4">
+                                    <span class="display-4 fw-bold text-primary">$1</span>
+                                    <span class="text-muted ms-2">/ay</span>
+                                    <span class="ms-3 text-success"><i class="bi bi-check-circle-fill me-1"></i>Aktif</span>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h5 class="mb-3">Öne Çıkan Özellikler</h5>
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-start">
+                                                <i class="bi bi-shield-check text-success fs-5 me-2 mt-1"></i>
+                                                <div>
+                                                    <h6 class="mb-0">Güvenli Yapı</h6>
+                                                    <p class="small text-muted mb-0">%100 güvenli altyapı</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-start">
+                                                <i class="bi bi-lightning-charge text-warning fs-5 me-2 mt-1"></i>
+                                                <div>
+                                                    <h6 class="mb-0">Hızlı Destek</h6>
+                                                    <p class="small text-muted mb-0">7/24 canlı destek</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-start">
+                                                <i class="bi bi-command text-info fs-5 me-2 mt-1"></i>
+                                                <div>
+                                                    <h6 class="mb-0">Özel Komutlar</h6>
+                                                    <p class="small text-muted mb-0">İsteğe özel komutlar</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-start">
+                                                <i class="bi bi-graph-up text-danger fs-5 me-2 mt-1"></i>
+                                                <div>
+                                                    <h6 class="mb-0">%99.9 Çalışma</h6>
+                                                    <p class="small text-muted mb-0">Kesintisiz hizmet</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid gap-3">
+                                    <a href="{{ url_for('contact') }}" class="btn btn-warning btn-lg py-3 fw-bold">
+                                        <i class="bi bi-cart-plus me-2"></i>Hemen Kirala - Sadece $1/ay
+                                    </a>
+                                    <a href="#features" class="btn btn-outline-primary">
+                                        <i class="bi bi-info-circle me-1"></i> Tüm Özellikleri Gör
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Neden Bizim Botumuzu Kullanmalısınız?</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                    <div class="text-center mb-4">
+                        <div class="mb-3">
+                            <i class="bi bi-shield-check text-primary" style="font-size: 2rem;"></i>
+                        </div>
+                    </div>
+                    <h4 class="h5 text-center">Güvenli</h4>
+                    <p class="text-center mb-0">Güvenlik en öncelikli önceliğimizdir. Botlarımız %100 güvenlidir.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                    <div class="text-center mb-4">
+                        <div class="mb-3">
+                            <i class="bi bi-lightning-charge text-warning" style="font-size: 2rem;"></i>
+                        </div>
+                    </div>
+                    <h4 class="h5 text-center">Hızlı</h4>
+                    <p class="text-center mb-0">Yüksek performanslı sunucularımızla kesintisiz hizmet.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                    <div class="text-center mb-4">
+                        <div class="mb-3">
+                            <i class="bi bi-headset text-success" style="font-size: 2rem;"></i>
+                        </div>
+                    </div>
+                    <h4 class="h5 text-center">7/24 Destek</h4>
+                    <p class="text-center mb-0">Uzman ekibimiz her zaman yanınızda.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center py-4">
+        <h2 class="h1 mb-4">Hemen Başlayın!</h2>
+        <p class="lead mb-4">Sunucunuzu bir üst seviyeye taşımak için hemen botumuzu ekleyin.</p>
+        <a href="https://discord.gg/6qDKkHfkQt" class="btn btn-light btn-lg px-5">
+            <i class="bi bi-discord me-2"></i>Discord Sunucumuza Katıl
+        </a>
+    </div>
+</section>
+{% endblock %}

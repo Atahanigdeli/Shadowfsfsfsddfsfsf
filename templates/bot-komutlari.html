@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 bg-dark text-white">
+    <div class="container py-5">
+        <div class="text-center">
+            <h1 class="display-4 fw-bold mb-3">Bot Komutları</h1>
+            <p class="lead">Tüm bot komutları ve kullanımları</p>
+        </div>
+    </div>
+</section>
+
+<!-- Commands Section -->
+<section class="py-5">
+    <div class="container">
+        <!-- Sunucu Kurulumu -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Sunucu Kurulumu</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/set_welcome &lt;kanal&gt;</code> - Yeni üyelerin karşılanacağı hoş geldin kanalını ayarlar.</li>
+                    <li class="mb-2"><code>/setlog &lt;kanal&gt;</code> - Moderasyon ve sunucu aktiviteleri için log kanalını ayarlar.</li>
+                    <li class="mb-2"><code>/set_start &lt;kanal&gt;</code> - Bot açıldığında mesaj atacağı kanalı belirler.</li>
+                    <li><code>/setstaff &lt;rol&gt;</code> - Destek talepleriyle ilgilenecek yetkili rolünü ayarlar.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Moderasyon -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Moderasyon</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/ban &lt;üye&gt; [sebep] [video_url] [silme_gün]</code> - Üyeyi sunucudan yasaklar.</li>
+                    <li class="mb-2"><code>/kick &lt;üye&gt; [sebep] [video_url]</code> - Üyeyi sunucudan atar.</li>
+                    <li class="mb-2"><code>/mute &lt;üye&gt; &lt;dakika&gt; [sebep]</code> - Üyeyi belirli süre susturur.</li>
+                    <li class="mb-2"><code>/unmute &lt;üye&gt; [sebep]</code> - Susturulmuş üyenin susturmasını kaldırır.</li>
+                    <li class="mb-2"><code>/clear &lt;sayı&gt;</code> - Belirtilen sayıda mesajı siler (1–100).</li>
+                    <li class="mb-2"><code>/lock</code> - Mevcut kanalı kilitler.</li>
+                    <li><code>/unlock</code> - Kanaldaki kilidi kaldırır.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Ses Panosu -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Ses Panosu</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><code>/sound_enter &lt;ses_id&gt;</code> - Ses kanalında belirli bir sesi çalar (ID: 1, 2, 3).</li>
+                            <li><code>/sound_exit</code> - Botu ses kanalından çıkarır.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Çekilişler -->
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Çekilişler</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><code>/giveaway &lt;süre&gt; &lt;kazanan_sayısı&gt; &lt;ödül&gt;</code> - Çekiliş başlatır.</li>
+                            <li><code>/end-giveaway &lt;mesaj_id&gt;</code> - Çekilişi erken bitirir.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ortaklık Sistemi -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Ortaklık Sistemi</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/partner add &lt;kanal&gt; &lt;mesaj&gt;</code> - Yeni ortak sunucu ekler.</li>
+                    <li class="mb-2"><code>/partner list</code> - Tüm ortak sunucuları listeler.</li>
+                    <li><code>/partner remove &lt;kanal&gt;</code> - Ortak listeden sunucuyu kaldırır.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Destek Sistemi -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Destek Sistemi</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/ticket [sebep]</code> - Yeni bir destek talebi oluşturur.</li>
+                    <li class="mb-2"><code>/set_clticket &lt;kanal&gt;</code> - Destek log kanalını ayarlar.</li>
+                    <li><code>/ticket_panel</code> - Kullanıcıların destek talebi açabileceği paneli oluşturur.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Araçlar -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Araçlar</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/announce &lt;kanal&gt; &lt;başlık&gt; &lt;mesaj&gt;</code> - Belirtilen kanala duyuru gönderir.</li>
+                    <li class="mb-2"><code>/dm &lt;rol&gt; &lt;başlık&gt; &lt;mesaj&gt;</code> - Belirli role sahip herkese özel mesaj gönderir.</li>
+                    <li><code>/setautorole &lt;rol&gt;</code> - Yeni gelen üyelere otomatik rol verir.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bilgi -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Bilgi</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/bot_info</code> - Bot hakkında detaylı bilgi gösterir.</li>
+                    <li><code>/help</code> - Yardım mesajını gösterir.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

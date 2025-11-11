@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Featured Header -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Ana Sayfa</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+            </ol>
+        </nav>
+        <h1 class="mt-3">{{ title }}</h1>
+        <p class="lead text-muted">{{ description }}</p>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% for product in products %}
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="card product-card h-100 border-0 shadow-sm">
+                    <div class="position-relative">
+                        <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}" style="height: 180px; object-fit: contain; padding: 1rem; background: #f8f9fa;">
+                        <div class="product-actions position-absolute top-0 end-0 p-2">
+                            <button class="btn btn-sm btn-light rounded-circle mb-2" data-bs-toggle="tooltip" title="Favorilere Ekle">
+                                <i class="bi bi-heart"></i>
+                            </button>
+                            <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="tooltip" title="Hızlı Görünüm">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                        {% if loop.index <= 2 %}
+                        <div class="position-absolute top-0 start-0 m-2">
+                            <span class="badge bg-danger">Yeni</span>
+                        </div>
+                        {% endif %}
+                        {% if loop.index % 2 == 0 %}
+                        <div class="position-absolute bottom-0 start-0 m-2">
+                            <span class="badge bg-success">%25 İndirim</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Kategori</span>
+                            <div class="rating">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-half text-warning"></i>
+                                <span class="ms-1 small text-muted">({{ loop.index + 10 }})</span>
+                            </div>
+                        </div>
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div>
+                                <span class="h5 mb-0 fw-bold text-primary">{{ "%.2f"|format(product.price) }} TL</span>
+                                {% if loop.index % 2 == 0 %}
+                                <small class="text-decoration-line-through text-muted ms-2">{{ "%.2f"|format(product.price * 1.25) }} TL</small>
+                                {% endif %}
+                            </div>
+                            <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-sm btn-primary rounded-pill">
+                                <i class="bi bi-cart-plus"></i> Ekle
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" class="mt-5">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Önceki</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Sonraki</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
+<!-- Special Offers Banner -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 mb-4 mb-md-0">
+                <h2 class="mb-3">Özel Teklifler</h2>
+                <p class="lead mb-0">Tüm ürünlerde geçerli %20'ye varan indirim fırsatlarını kaçırmayın!</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="#" class="btn btn-light btn-lg px-4">Hemen Alışveriş Yapın</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Top Categories -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Popüler Kategoriler</h2>
+            <p class="lead text-muted">En çok tercih edilen kategorileri keşfedin</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                            <i class="bi bi-phone text-primary fs-4"></i>
+                        </div>
+                        <h6 class="mb-0">Telefonlar</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                            <i class="bi bi-laptop text-primary fs-4"></i>
+                        </div>
+                        <h6 class="mb-0">Bilgisayarlar</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                            <i class="bi bi-earbuds text-primary fs-4"></i>
+                        </div>
+                        <h6 class="mb-0">Kulaklıklar</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                            <i class="bi bi-smartwatch text-primary fs-4"></i>
+                        </div>
+                        <h6 class="mb-0">Akıllı Saatler</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                            <i class="bi bi-tablet text-primary fs-4"></i>
+                        </div>
+                        <h6 class="mb-0">Tabletler</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center p-4">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                            <i class="bi bi-camera text-primary fs-4"></i>
+                        </div>
+                        <h6 class="mb-0">Fotoğraf Makineleri</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h3 class="mb-4">Yeniliklerden Haberdar Olun</h3>
+                <p class="text-muted mb-4">Kampanyalar ve indirimlerden ilk sizin haberiniz olsun.</p>
+                <form class="row g-2 justify-content-center">
+                    <div class="col-md-8">
+                        <input type="email" class="form-control form-control-lg" placeholder="E-posta adresiniz">
+                    </div>
+                    <div class="col-md-auto">
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Abone Ol</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

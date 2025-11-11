@@ -1,0 +1,517 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 bg-dark text-white">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-3">Discord Bot Hizmetleri</h1>
+                <p class="lead mb-4">Sunucunuz için profesyonel Discord botları. İhtiyacınıza uygun çözümlerimizle yanınızdayız.</p>
+                <div class="text-center">
+                <a href="#pricing" class="btn btn-primary btn-lg px-4 me-2">Hemen Başla</a>
+                <a href="#features" class="btn btn-outline-light btn-lg px-4 me-2">Özellikler</a>
+                <a href="#commands" class="btn btn-warning text-white btn-lg px-4">
+                    <i class="bi bi-terminal me-1"></i> Bot Komutları
+                </a>
+            </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://img.freepik.com/free-vector/discord-bot-computer-servers-development_107791-3883.jpg" alt="Discord Bot Hizmetleri" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Neden Bizim Botlarımız?</h2>
+            <p class="text-muted">Profesyonel ve güvenilir Discord bot çözümleri</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="p-4 text-center h-100">
+                    <div class="bg-white shadow-sm rounded-circle p-3 d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px; border: 2px solid #0d6efd;">
+                        <i class="bi bi-shield-check fs-2" style="color: #0d6efd;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Güvenli ve Kararlı</h5>
+                    <p class="text-muted mb-0">%99.9 çalışma süresi garantisi ile kesintisiz hizmet.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="p-4 text-center h-100">
+                    <div class="bg-white shadow-sm rounded-circle p-3 d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px; border: 2px solid #0d6efd;">
+                        <i class="bi bi-lightning-charge fs-2" style="color: #0d6efd;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Hızlı Kurulum</h5>
+                    <p class="text-muted mb-0">Sipariş sonrası 24 saat içinde kurulum yapılır.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="p-4 text-center h-100">
+                    <div class="bg-white shadow-sm rounded-circle p-3 d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px; border: 2px solid #0d6efd;">
+                        <i class="bi bi-headset fs-2" style="color: #0d6efd;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">7/24 Destek</h5>
+                    <p class="text-muted mb-0">Uzman ekibimiz her zaman yanınızda.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Fiyatlandırma</h2>
+            <p class="text-muted">İhtiyacınıza uygun paketlerimiz</p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Log Botu -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow rounded-4 overflow-hidden">
+                    <div class="card-header bg-primary text-white py-4 text-center">
+                        <h5 class="fw-bold mb-0">Log Botu</h5>
+                        <div class="mt-3">
+                            <span class="h1 fw-bold">2$</span>
+                            <span class="d-block">tek seferlik</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sunucu Olaylarını Kaydetme</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Üye Giriş/Çıkış Logları</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Mesaj Silme/Düzenleme Logları</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Rol Değişiklikleri</li>
+                            <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Ticket Sistemi</li>
+                            <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Hoşgeldin Sistemi</li>
+                            <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Çekiliş Sistemi</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-warning text-white w-100 mt-3 py-2">Sipariş Ver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Log + Ticket Botu -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow rounded-4 overflow-hidden">
+                    <div class="card-header bg-primary text-white py-4 text-center">
+                        <h5 class="fw-bold mb-0">Log + Ticket Botu</h5>
+                        <div class="mt-3">
+                            <span class="h1 fw-bold">3$</span>
+                            <span class="d-block">tek seferlik</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Tüm Log Özellikleri</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Özel Destek Bileti Sistemi</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Kategori ve Yetki Ayarları</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Özelleştirilebilir Biletler</li>
+                            <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Hoşgeldin Sistemi</li>
+                            <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Çekiliş Sistemi</li>
+                            <li class="invisible">Boşluk için</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-warning text-white w-100 mt-3 py-2">Sipariş Ver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Log + Welcome + Ticket Botu -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden">
+                    <div class="card-header bg-primary text-white py-4 text-center position-relative">
+                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
+                            Popüler
+                        </span>
+                        <h5 class="fw-bold mb-0">Log + Welcome + Ticket</h5>
+                        <div class="mt-3">
+                            <span class="h1 fw-bold">4$</span>
+                            <span class="d-block">tek seferlik</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Tüm Log Özellikleri</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Ticket Sistemi</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Özel Hoşgeldin Mesajları</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Otomatik Rol Verme</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Özel Kanallar</li>
+                            <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Çekiliş Sistemi</li>
+                            <li class="invisible">Boşluk için</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-warning text-white w-100 mt-3 py-2">Sipariş Ver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Log + Ticket + Welcome + Çekiliş Botu -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden">
+                    <div class="card-header bg-primary text-white py-3 text-center position-relative" style="min-height: 180px;">
+                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger fs-6 py-1 px-3" style="transform: translate(-50%, -50%);">
+                            Popüler
+                        </span>
+                        <h5 class="fw-bold mb-2" style="font-size: 1.1rem;">Log + Ticket + Welcome + Çekiliş</h5>
+                        <div class="mt-2">
+                            <span class="h3 fw-bold">5$</span>
+                            <span class="d-block small">tek seferlik</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Tüm Log Özellikleri</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Ticket Sistemi</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Özel Hoşgeldin Mesajları</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Otomatik Rol Verme</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Çekiliş Sistemi</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Özel Kanallar</li>
+                            <li class="invisible">Boşluk için</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-warning text-white w-100 mt-3 py-2">Sipariş Ver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Premium Paket -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden">
+                    <div class="card-header bg-primary text-white py-3 text-center position-relative" style="min-height: 180px;">
+                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger fs-6 py-1 px-3" style="transform: translate(-50%, -50%);">
+                            Popüler
+                        </span>
+                        <h5 class="fw-bold mb-2" style="font-size: 1.1rem;">Premium Paket</h5>
+                        <div class="mt-2">
+                            <span class="h1 fw-bold">6$</span>
+                            <span class="d-block small">tek seferlik</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Tüm Log Özellikleri</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Gelişmiş Ticket Sistemi</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Özelleştirilebilir Hoşgeldin</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Gelişmiş Çekiliş Sistemi</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Özel Komutlar</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>7/24 Öncelikli Destek</li>
+                            <li class="mb-2"><i class="bi bi-stars text-warning me-2"></i>Tüm Özellikler Aktif</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-warning text-white w-100 mt-3 py-2">Sipariş Ver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bot Komutları Section -->
+<section id="commands" class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Bot Komutları</h2>
+            <p class="text-muted">Tüm bot komutları ve kullanımları</p>
+        </div>
+        
+        <!-- Sunucu Kurulumu -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Sunucu Kurulumu</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/set_welcome &lt;kanal&gt;</code> - Yeni üyelerin karşılanacağı hoş geldin kanalını ayarlar.</li>
+                    <li class="mb-2"><code>/setlog &lt;kanal&gt;</code> - Moderasyon ve sunucu aktiviteleri için log kanalını ayarlar.</li>
+                    <li class="mb-2"><code>/set_start &lt;kanal&gt;</code> - Bot açıldığında mesaj atacağı kanalı belirler.</li>
+                    <li><code>/setstaff &lt;rol&gt;</code> - Destek talepleriyle ilgilenecek yetkili rolünü ayarlar.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Moderasyon -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Moderasyon</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/ban &lt;üye&gt; [sebep] [video_url] [silme_gün]</code> - Üyeyi sunucudan yasaklar.</li>
+                    <li class="mb-2"><code>/kick &lt;üye&gt; [sebep] [video_url]</code> - Üyeyi sunucudan atar.</li>
+                    <li class="mb-2"><code>/mute &lt;üye&gt; &lt;dakika&gt; [sebep]</code> - Üyeyi belirli süre susturur.</li>
+                    <li class="mb-2"><code>/unmute &lt;üye&gt; [sebep]</code> - Susturulmuş üyenin susturmasını kaldırır.</li>
+                    <li class="mb-2"><code>/clear &lt;sayı&gt;</code> - Belirtilen sayıda mesajı siler (1–100).</li>
+                    <li class="mb-2"><code>/lock</code> - Mevcut kanalı kilitler.</li>
+                    <li><code>/unlock</code> - Kanaldaki kilidi kaldırır.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Ses Panosu -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Ses Panosu</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><code>/sound_enter &lt;ses_id&gt;</code> - Ses kanalında belirli bir sesi çalar (ID: 1, 2, 3).</li>
+                            <li><code>/sound_exit</code> - Botu ses kanalından çıkarır.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Çekilişler -->
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Çekilişler</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><code>/giveaway &lt;süre&gt; &lt;kazanan_sayısı&gt; &lt;ödül&gt;</code> - Çekiliş başlatır.</li>
+                            <li><code>/end-giveaway &lt;mesaj_id&gt;</code> - Çekilişi erken bitirir.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ortaklık Sistemi -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Ortaklık Sistemi</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/partner add &lt;kanal&gt; &lt;mesaj&gt;</code> - Yeni ortak sunucu ekler.</li>
+                    <li class="mb-2"><code>/partner list</code> - Tüm ortak sunucuları listeler.</li>
+                    <li><code>/partner remove &lt;kanal&gt;</code> - Ortak listeden sunucuyu kaldırır.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Destek Sistemi -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Destek Sistemi</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/ticket [sebep]</code> - Yeni bir destek talebi oluşturur.</li>
+                    <li class="mb-2"><code>/set_clticket &lt;kanal&gt;</code> - Destek log kanalını ayarlar.</li>
+                    <li><code>/ticket_panel</code> - Kullanıcıların destek talebi açabileceği paneli oluşturur.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Araçlar -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Araçlar</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/announce &lt;kanal&gt; &lt;başlık&gt; &lt;mesaj&gt;</code> - Belirtilen kanala duyuru gönderir.</li>
+                    <li class="mb-2"><code>/dm &lt;rol&gt; &lt;başlık&gt; &lt;mesaj&gt;</code> - Belirli role sahip herkese özel mesaj gönderir.</li>
+                    <li><code>/setautorole &lt;rol&gt;</code> - Yeni gelen üyelere otomatik rol verir.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bilgi -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Bilgi</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><code>/bot_info</code> - Bot hakkında detaylı bilgi gösterir.</li>
+                    <li><code>/help</code> - Yardım mesajını gösterir.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="fw-bold mb-4">Sipariş ve İletişim</h2>
+                <p class="lead text-muted mb-5">Discord botu satın almak veya daha fazla bilgi almak için bize ulaşın.</p>
+                
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="p-4 rounded-3 bg-white h-100">
+                            <div class="d-inline-flex align-items-center justify-content-center mb-3" style="width: 100px; height: 100px; background: #5865F2; border-radius: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                                <i class="bi bi-discord text-white" style="font-size: 4rem;"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Discord Sunucumuz</h5>
+                            <a href="https://discord.gg/6qDKkHfkQt" target="_blank" class="btn btn-primary">Sunucuya Katıl</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="p-4 rounded-3 bg-white h-100">
+                            <div class="d-inline-flex align-items-center justify-content-center mb-3" style="width: 100px; height: 100px; background: #0d6efd; border-radius: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                                <i class="bi bi-envelope-fill text-white" style="font-size: 4rem;"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">info.shadowweb@gmail.com</h5>
+                            <div class="d-flex align-items-center justify-content-center gap-2">
+                                <a href="https://mail.google.com/mail/u/0/#inbox" class="btn btn-primary btn-sm">
+                                    <i class="bi bi-envelope me-1"></i>Mail Gönder
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Discord Community Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="fw-bold mb-3">Discord Topluluğumuza Katılın</h2>
+                <p class="lead mb-4">Diğer kullanıcılarla etkileşim kurun, destek alın ve özel tekliflerden ilk siz haberdar olun!</p>
+                <a href="https://discord.gg/örnek" target="_blank" class="btn btn-light btn-lg px-4">
+                    <i class="bi bi-discord me-2"></i>Sunucuya Katıl
+                </a>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0 text-center">
+                <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6ca814282eca7172c6_icon_clyde_white_RGB.png" alt="Discord Logo" class="img-fluid mb-3" style="max-width: 200px;">
+                <img src="https://img.freepik.com/free-vector/discord-community-illustration_23-2148842278.jpg" alt="Discord Community" class="img-fluid rounded-3">
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.bg-primary {
+    background-color: #5865F2 !important;
+}
+
+.btn-primary {
+    background-color: #5865F2;
+    border-color: #5865F2;
+}
+
+.btn-primary:hover {
+    background-color: #4752c4;
+    border-color: #4752c4;
+}
+
+.btn-outline-primary {
+    color: #5865F2;
+    border-color: #5865F2;
+}
+
+.btn-outline-primary:hover {
+    background-color: #5865F2;
+    border-color: #5865F2;
+}
+
+code {
+    background: #f1f3f5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #d63384;
+}
+
+/* Command Items Styling */
+.command-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.command-item:last-child {
+    border-bottom: none;
+}
+
+.command-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    margin-right: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.command-name {
+    background: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin-right: 10px;
+    white-space: nowrap;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-weight: 500;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.command-desc {
+    font-size: 0.9rem;
+    color: #495057;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+/* Hover effects */
+.command-item:hover .command-name {
+    background: #e9ecef;
+}
+
+.command-item:hover .command-desc {
+    color: #495057;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .command-item {
+        flex-wrap: wrap;
+        padding: 10px 0;
+    }
+    
+    .command-desc {
+        width: 100%;
+        margin-top: 4px;
+        padding-left: 34px; /* badge width + margin */
+        white-space: normal;
+    }
+}
+</style>
+{% endblock %}
